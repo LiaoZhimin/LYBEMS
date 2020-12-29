@@ -19,3 +19,8 @@ func MyXormInit() *xorm.Engine {
 	}
 	return engine
 }
+
+func (mx *MyXorm) GetById(int64 id) rt interface{}{
+	engine.Id(id).Get(&rt)
+	return rt
+}
