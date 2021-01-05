@@ -12,16 +12,10 @@ type MyXorm struct {
 	Msg string `json:"msg"`
 }
 
-// MyXormInit 返回xorm引擎 
-func MyXormInit() *xorm.Engine {
+// MyXormInit 返回xorm引擎
+func (mx *MyXorm) MyXormInit() *xorm.Engine {
 	if engine == nil {
 		engine, _ = xorm.NewEngine("mysql", "root:Lzm114321@tcp(127.0.0.1:33061)/LYBEMS?charset=utf8")
 	}
 	return engine
-}
-
-//GetById 实例DAO函数，根据ID获取数据
-func (mx *MyXorm) GetById(int64 id) rt interface{}{
-	engine.Id(id).Get(&rt)
-	return rt
 }
