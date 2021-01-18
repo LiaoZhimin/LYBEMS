@@ -1,7 +1,6 @@
-package main
+package services
 
 import (
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/xormplus/xorm"
 )
 
