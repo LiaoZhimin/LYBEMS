@@ -12,7 +12,7 @@ func homeHandler(c *gin.Context) {
 	role := c.DefaultQuery("role", "teacher") //Get 传入的参数
 	//返回 String
 	//c.String(200, "Hello, Geektutu "+name+" "+role)
-	c.HTML(http.StatusOK, "Index.html", gin.H{"name": name, "role": role})
+	c.HTML(http.StatusOK, "index.html", gin.H{"name": name, "role": role})
 }
 
 /* p1 router func   */
