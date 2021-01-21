@@ -15,7 +15,7 @@ func main() {
 	r.Static("/ss", "./statics")                  //设置静态文件 html使用/ss/main.css
 	r.StaticFile("/favicon.ico", "./favicon.ico") //加载单个文件
 
-	r.LoadHTMLGlob("templates/*")
+	r.LoadHTMLGlob("templates/*") //
 	//r.LoadHTMLGlob("templates/*/*") //Html模板，有多级结构,/t../t1/index.html
 
 	//r.Use(Cors())  // 跨域设置
