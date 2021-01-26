@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"LYBEMS/LYBEMS/dal"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,5 +19,7 @@ func homeHandler(c *gin.Context) {
 /* p1 router func   */
 
 func p1IndexHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"name": "lzm", "code": "asdqwe"})
+	var dao *dal.UserDAO
+	ls := dao.GetList()
+	c.JSON(http.StatusOK, gin.H{"msg": "OK", "data": ls})
 }

@@ -10,10 +10,10 @@ type UserDAO struct {
 }
 
 // GetList 获取用户信息
-func (ud *UserDAO) GetList() []*UserDAO {
-	var users []models.Users
-	var myx services.MyXorm
+func (ud *UserDAO) GetList() *[]models.User {
+	var users []models.User
+	var myx *services.MyXorm
 	eng := myx.MyXormInit()
 	eng.Desc("id").Limit(100, 0).Find(&users)
-	return users
+	return &users
 }
