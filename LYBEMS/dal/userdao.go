@@ -10,10 +10,9 @@ type UserDAO struct {
 }
 
 // GetList 获取用户信息
-func (ud *UserDAO) GetList() *[]models.User {
+func (ud *UserDAO) GetList() (*[]models.User, error) {
 	var users []models.User
-	var myx services.MyXorm
-	eng := myx.InitMySQLEgn()
-	eng.Desc("Code").Limit(100, 0).Find(&users)
-	return &users
+	eng := services.InitMySQLEgn()
+	err := eng.Desc("Code").Limit(100, 0).Find(&users)
+	return &users, err
 }

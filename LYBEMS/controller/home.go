@@ -17,9 +17,12 @@ func homeHandler(c *gin.Context) {
 }
 
 /* p1 router func   */
-
 func p1IndexHandler(c *gin.Context) {
 	var dao *dal.UserDAO
-	ls := dao.GetList()
-	c.JSON(http.StatusOK, gin.H{"msg": "OK", "data": ls})
+	ls, err := dao.GetList()
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{"msg": err, "data": ls})
+	} else {
+		c.JSON(http.StatusOK, gin.H{"msg": "OK", "data": ls})
+	}
 }
