@@ -31,7 +31,7 @@ func (ud *PSTDAO) InOrUp(m1 models.Position) (int64, error) {
 	b, _ := eng.Cols("id").ID(m1.ID).Exist()
 	if b {
 		return eng.ID(m1.ID).Update(&m1)
-	} else {
-		return eng.InsertOne(&m1)
 	}
+	return eng.InsertOne(&m1)
+
 }

@@ -31,7 +31,7 @@ func (ud *EquitmentDAO) InOrUp(m1 models.Equitment) (int64, error) {
 	b, _ := eng.Cols("No").ID(m1.No).Exist()
 	if b {
 		return eng.ID(m1.No).Update(&m1)
-	} else {
-		return eng.InsertOne(&m1)
 	}
+	return eng.InsertOne(&m1)
+
 }
